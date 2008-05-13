@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<project name="rbp" default="main">
+
+	<target name="main">
+		<echo message="NANTCONTRIB_HOME=${environment::get-variable('NANTCONTRIB_HOME')}"/>
+        <loadtasks assembly="${environment::get-variable('NANTCONTRIB_HOME')}/bin/NAnt.Contrib.Tasks.dll" />
+	
+		<property name="rbp.uri" value="http://richbrowser.googlecode.com/svn/trunk/0.3/RichBrowserPlatform"/>
+		<property name="rbp.dir" value="../rbp"/>
+		<property name="rbp.update.dir" value="../rbp/RichBrowserPlatform"/>
+		<property name="rbp.build.file" value="${rbp.dir}/RichBrowserPlatform/RichBrowserPlatform.build"/>
+		<property name="rbp.controls.output.dir" value="${rbp.dir}/RichBrowserPlatform/OpenCS.RBP.Controls/bin/Debug"/>
+		<property name="rbp.winforms.output.dir" value="${rbp.dir}/RichBrowserPlatform/OpenCS.RBP.WinForms/bin/Debug"/>
+
+		<property name="lib.dir" value="../Libraries"/>
+	
+		<svn command="checkout" 
+		     destination="${rbp.dir}" 
+		     uri="${rbp.uri}" 
+			 verbose="true"
+			 unless="${directory::exists(rbp.update.dir)}"
+		      />
+			  
+		<svn command="update" 
+		     destination="${rbp.update.dir}" 
+		     uri="${rbp.uri}" 
+			 verbose="true"
+			 if="${directory::exists(rbp.update.dir)}"
+		      />
+			  
+		<nant buildfile="${rbp.build.file}"/>
+
+		<copy todir="${lib.dir}">
+			<fileset basedir="${rbp.controls.output.dir}">
+				<include name="*.dll"/>
+				<include name="*.pdb"/>
+				<include name="*.xml"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${lib.dir}">
+			<fileset basedir="${rbp.winforms.output.dir}">
+				<include name="*.dll"/>
+				<include name="*.pdb"/>
+				<include name="*.xml"/>
+			</fileset>
+		</copy>
+
+	</target>
+	
+</project>
