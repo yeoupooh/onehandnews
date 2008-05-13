@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUMz", "PUMz\PUMz.csproj", "{21284EFA-4FC5-44A8-9F8C-0F700F19925B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUMz.NewsPlugin", "PUMz.NewsPlugin\PUMz.NewsPlugin.csproj", "{A40078C5-5BA6-49B7-9EAC-CDC44BFFB8F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneHandNews", "OneHandNews\OneHandNews.csproj", "{AA4A6EAD-5A5E-4DCD-852E-F3E8441DE235}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21284EFA-4FC5-44A8-9F8C-0F700F19925B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21284EFA-4FC5-44A8-9F8C-0F700F19925B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21284EFA-4FC5-44A8-9F8C-0F700F19925B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21284EFA-4FC5-44A8-9F8C-0F700F19925B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A40078C5-5BA6-49B7-9EAC-CDC44BFFB8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A40078C5-5BA6-49B7-9EAC-CDC44BFFB8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A40078C5-5BA6-49B7-9EAC-CDC44BFFB8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A40078C5-5BA6-49B7-9EAC-CDC44BFFB8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA4A6EAD-5A5E-4DCD-852E-F3E8441DE235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA4A6EAD-5A5E-4DCD-852E-F3E8441DE235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA4A6EAD-5A5E-4DCD-852E-F3E8441DE235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA4A6EAD-5A5E-4DCD-852E-F3E8441DE235}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
