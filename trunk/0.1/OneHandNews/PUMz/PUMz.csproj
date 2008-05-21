@@ -37,6 +37,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\AddDownloadItemAction.cs" />
     <Compile Include="ArticleInfo.cs" />
     <Compile Include="CategoryInfo.cs" />
     <Compile Include="DownloadItem.cs" />
@@ -48,9 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="rbp.build" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Actions\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -108,46 +108,60 @@ namespace PUMz.NewsPlugin
                             Directory.CreateDirectory(siteFolder);
                         }
 
-                        foreach (TreeNode catTN in siteTN.Nodes)
+                        string siteIndexFile = siteFolder + @"\index.html";
+                        using (StreamWriter swSiteIndex = new StreamWriter(siteIndexFile))
                         {
-                            CategoryInfo cat = catTN.Tag as CategoryInfo;
-                            if (cat != null)
+                            WriteHeader(swSiteIndex);
+
+                            foreach (TreeNode catTN in siteTN.Nodes)
                             {
-                                string catFolder = siteFolder + @"\" + cat.Id;
-                                string catFile = catFolder + @"\index.html";
-                                if (Directory.Exists(catFolder) == false)
+                                CategoryInfo cat = catTN.Tag as CategoryInfo;
+                                if (cat != null)
                                 {
-                                    Directory.CreateDirectory(catFolder);
-                                }
-
-                                using (StreamWriter swCat = new StreamWriter(catFile))
-                                {
-                                    WriteHeader(swCat);
-
-                                    int i = 0;
-                                    foreach (TreeNode artTN in catTN.Nodes)
+                                    string catFolder = siteFolder + @"\" + cat.Id;
+                                    string catIdxFile = catFolder + @"\index.html";
+                                    if (Directory.Exists(catFolder) == false)
                                     {
-                                        ArticleInfo art = artTN.Tag as ArticleInfo;
-                                        if (art != null)
-                                        {
-                                            //string artContent = GetWebContent(art.Url);
-                                            string artContent = PUMzUtils.GetWebContent(art.Url);
-                                            string artFile = string.Format(@"{0}\{1}.html", catFolder, i);
-                                            using (StreamWriter sw = new StreamWriter(artFile))
-                                            {
-                                                string grabbed = StringUtils.GrabString(m_logger, artContent, Properties.Resources.TAG_S_ARTICLE, Properties.Resources.TAG_E_ARTICLE, true, true);
-                                                WriteHeader(sw);
-                                                sw.Write(grabbed);
-                                                WriteFooter(sw);
-                                            }
-                                            swCat.WriteLine(string.Format("- <a href='{0}.html'>{1}</a><br>", i, art.Title));
-                                            i++;
-                                        }
+                                        Directory.CreateDirectory(catFolder);
                                     }
 
-                                    WriteFooter(swCat);
+                                    swSiteIndex.WriteLine(string.Format("- <a href='{0}/index.html'>{1}</a><br/>", cat.Id, cat.Title));
+
+                                    using (StreamWriter swCatIndex = new StreamWriter(catIdxFile))
+                                    {
+                                        WriteHeader(swCatIndex);
+
+                                        int i = 0;
+                                        foreach (TreeNode artTN in catTN.Nodes)
+                                        {
+                                            ArticleInfo art = artTN.Tag as ArticleInfo;
+                                            if (art != null)
+                                            {
+                                                //string artContent = GetWebContent(art.Url);
+                                                string artContent = PUMzUtils.GetWebContent(art.Url);
+                                                string artFile = string.Format(@"{0}\{1}.html", catFolder, i);
+                                                using (StreamWriter swArt = new StreamWriter(artFile))
+                                                {
+                                                    string grabbed = StringUtils.StripTags(
+                                                        StringUtils.GrabString(
+                                                            artContent,
+                                                            Properties.Resources.TAG_S_ARTICLE,
+                                                            Properties.Resources.TAG_E_ARTICLE));
+                                                    WriteHeader(swArt);
+                                                    swArt.Write(grabbed);
+                                                    WriteFooter(swArt);
+                                                }
+                                                swCatIndex.WriteLine(string.Format("<a href='{0}.html'>{0}.{1}</a><br/>", i, art.Title));
+                                                i++;
+                                            }
+                                        }
+
+                                        WriteFooter(swCatIndex);
+                                    }
                                 }
                             }
+
+                            WriteFooter(swSiteIndex);
                         }
                     }
                 }
