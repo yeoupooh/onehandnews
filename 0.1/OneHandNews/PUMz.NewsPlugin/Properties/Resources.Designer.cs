@@ -60,6 +60,20 @@ namespace PUMz.NewsPlugin.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap arrow_down {
+            get {
+                object obj = ResourceManager.GetObject("arrow_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lightning {
+            get {
+                object obj = ResourceManager.GetObject("lightning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         /// <summary>
         ///   &lt;a href=&apos;([^&apos;]*)&apos; title=&apos;([^&apos;]*)&apos;&gt;과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
