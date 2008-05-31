@@ -57,7 +57,7 @@
             // 
             // toolStripButtonStart
             // 
-            this.toolStripButtonStart.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStart.Image")));
+            this.toolStripButtonStart.Image = global::PUMz.NewsPlugin.Properties.Resources.lightning;
             this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStart.Name = "toolStripButtonStart";
             this.toolStripButtonStart.Size = new System.Drawing.Size(65, 26);
@@ -66,7 +66,7 @@
             // 
             // toolStripButtonDown
             // 
-            this.toolStripButtonDown.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDown.Image")));
+            this.toolStripButtonDown.Image = global::PUMz.NewsPlugin.Properties.Resources.arrow_down;
             this.toolStripButtonDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDown.Name = "toolStripButtonDown";
             this.toolStripButtonDown.Size = new System.Drawing.Size(72, 26);
@@ -101,7 +101,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBox1);
             this.splitContainer1.Size = new System.Drawing.Size(517, 236);
-            this.splitContainer1.SplitterDistance = 161;
+            this.splitContainer1.SplitterDistance = 160;
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -110,7 +110,7 @@
             this.treeViewMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewMain.Location = new System.Drawing.Point(0, 0);
             this.treeViewMain.Name = "treeViewMain";
-            this.treeViewMain.Size = new System.Drawing.Size(517, 161);
+            this.treeViewMain.Size = new System.Drawing.Size(517, 160);
             this.treeViewMain.TabIndex = 0;
             // 
             // textBox1
@@ -119,7 +119,7 @@
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(517, 65);
+            this.textBox1.Size = new System.Drawing.Size(517, 66);
             this.textBox1.TabIndex = 0;
             // 
             // DCPUMzNews
@@ -130,6 +130,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DCPUMzNews";
             this.TabText = "PUMz.News";
             this.Text = "DCPUMzNews";

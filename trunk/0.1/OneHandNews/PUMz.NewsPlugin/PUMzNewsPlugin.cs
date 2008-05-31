@@ -22,9 +22,9 @@ namespace PUMz.NewsPlugin
         public override void Init()
         {
             DCPUMzNews dc = new DCPUMzNews();
-            dc.RichBrowserControl = m_rbc;
-            dc.Show(m_rbc.DockPanel, DockState.DockLeft);
-            dc.ActionHandler = m_rbc;
+            dc.RichBrowserControl = RichBrowserControl;
+            dc.Show(RichBrowserControl.DockPanel, DockState.DockLeft);
+            dc.ActionHandler = RichBrowserControl;
         }
 
         public override string Title
